@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, escape
+from flask import Flask, render_template, request, session
 from vsearch import search_for_letters
 from DBcm import UseDatabase
+from checker import check_logged_in
 
 app = Flask(__name__)
 
@@ -8,6 +9,8 @@ app.config['dbconfig'] = {'host': '127.0.0.1',
                           'user': 'vsearch',
                           'password': 'vsearchpasswd',
                           'database': 'vsearchlogDB', }
+
+app.secret_key = 'wuj'
 
 
 def log_request(req: 'flask_request', res: str) -> None:
@@ -22,6 +25,7 @@ def log_request(req: 'flask_request', res: str) -> None:
 
 
 @app.route('/viewlog')
+@check_logged_in
 def view_the_log() -> 'html':
     with UseDatabase(app.config['dbconfig']) as cursor:
         _SQL = """select phrase, letters, ip, browser_string, results from log"""
@@ -45,6 +49,18 @@ def do_search() -> 'html':
 @app.route('/entry')
 def entry_page() -> 'html':
     return render_template('entry.html', the_title='Witamy na stronie internetowej search4letters')
+
+
+@app.route('/login')
+def login() -> str:
+    session['logged in'] = True
+    return 'Teraz jestes zalogowany'
+
+
+@app.route('/logout')
+def logout() -> str:
+    session.pop('logged in')
+    return 'Teraz jestes wylogowany'
 
 
 if __name__ == '__main__':
