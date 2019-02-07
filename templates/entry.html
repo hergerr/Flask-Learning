@@ -1,14 +1,14 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block body %}
 
 <div class="row twelve columns"><h2>{{ the_title }} </h2></div>
 
-<form method='POST' action='/search_for'>
-        <div class="row"><input name='phrase' type='TEXT' width='60' placeholder='Tutaj wpisz fraze'></div>
-        <div class="row"><input name='letters' type='TEXT' placeholder='Wpisz litery które chcesz wyszukać'></div>
+<form method="POST" action="/search_for">
+        <div class="row"><input name="phrase" type="TEXT" width="60" placeholder="Tutaj wpisz fraze"></div>
+        <div class="row"><input name="letters" type="TEXT" placeholder="Wpisz litery które chcesz wyszukać"></div>
     <p> Gdy będziesz gotów, kliknij ten przycisk:</p>
-    <p><input value='Zrób to!' type='SUBMIT'></p>
+    <p><input value="Zrób to!" type="SUBMIT"></p>
 </form>
 
 {% endblock %}

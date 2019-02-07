@@ -1,20 +1,20 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block body %}
 
 <h2>{{ the_title }} </h2>
 
-<p>Podałeś następujące dane:
-<div class="row "><b>Fraza:</b>{{ the_phrase }}</div>
-<div class="row"><b>Litery:</b>{{ the_letters }}</div>
-</p>
-<p>Gdy we frazie „{{the_phrase }}” wyszuka się litery „{{ the_letters }}”, 
-zwrócone zostaną następujące wyniki:</p>
-<b>{{ the_results }} </b>
-<div class="row logs">
-    <form method='POST' action='/viewlog'>
-        <input type="button" value="Przejdź do logów">
-    </form>
-</div>
+<form method="POST" action="/viewlog">
+    <p>Podałeś następujące dane:
+    <div class="row "><b>Fraza:</b>{{ the_phrase }}</div>
+    <div class="row"><b>Litery:</b>{{ the_letters }}</div>
+    </p>
+    <p>Gdy we frazie „{{the_phrase }}” wyszuka się litery „{{ the_letters }}”,
+        zwrócone zostaną następujące wyniki:</p>
+    <b>{{ the_results }} </b>
+    <div class="row logs">
+        <input type="submit" value="Przejdź do logów">
+    </div>
+</form>
 
 {% endblock %}

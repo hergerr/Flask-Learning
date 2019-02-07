@@ -24,7 +24,7 @@ def log_request(req: 'flask_request', res: str) -> None:
         cursor.execute(_SQL, (req.form['phrase'], req.form['letters'], req.remote_addr, req.user_agent.browser, res,))
 
 
-@app.route('/viewlog')
+@app.route('/viewlog', methods=['POST'])
 @check_logged_in
 def view_the_log() -> 'html':
     """Wyświetla logi wszystkim zalogowanym użytkownikom"""
