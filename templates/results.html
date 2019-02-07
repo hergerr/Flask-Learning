@@ -4,14 +4,12 @@
 
 <h2>{{ the_title }} </h2>
 
-<p>Podałeś następujące dane:</p>
-<table>
-<tr><td>Fraza:</td><td>{{ the_phrase }} </td></tr>
-<tr><td>Litery:</td><td>{{ the_letters }} </td></tr>
-</table>
-
+<p>Podałeś następujące dane:
+<div class="row "><b>Fraza:</b>{{ the_phrase }}</div>
+<div class="row"><b>Litery:</b>{{ the_letters }}</div>
+</p>
 <p>Gdy we frazie „{{the_phrase }}” wyszuka się litery „{{ the_letters }}”, 
 zwrócone zostaną następujące wyniki:</p>
-<h3>{{ the_results }} </h3>
+<b>{{ the_results }} </b>
 
 {% endblock %}

@@ -27,7 +27,7 @@ def log_request(req: 'flask_request', res: str) -> None:
 @app.route('/viewlog')
 @check_logged_in
 def view_the_log() -> 'html':
-    """Wyświetla logi zalogowanym użytkownikom"""
+    """Wyświetla logi wszystkim zalogowanym użytkownikom"""
     try:
         with UseDatabase(app.config['dbconfig']) as cursor:
             _SQL = """select phrase, letters, ip, browser_string, results from log"""
