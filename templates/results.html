@@ -11,5 +11,10 @@
 <p>Gdy we frazie „{{the_phrase }}” wyszuka się litery „{{ the_letters }}”, 
 zwrócone zostaną następujące wyniki:</p>
 <b>{{ the_results }} </b>
+<div class="row logs">
+    <form method='POST' action='/viewlog'>
+        <input type="button" value="Przejdź do logów">
+    </form>
+</div>
 
 {% endblock %}

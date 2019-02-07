@@ -10,7 +10,7 @@ app.config['dbconfig'] = {'host': '127.0.0.1',
                           'password': 'vsearchpasswd',
                           'database': 'vsearchlogDB', }
 
-app.secret_key = 'wuj'
+app.secret_key = 'ddwwqffttyrguky'
 
 
 def log_request(req: 'flask_request', res: str) -> None:
