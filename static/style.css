@@ -53,6 +53,10 @@ td, th {
     margin: 0 auto;
 }
 
+.login{
+    margin: 10px 30px 0 0;
+}
+
 /*** Inputs ***/
 input[type=text] {
     color: white;
